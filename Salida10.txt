@@ -1,0 +1,109 @@
+
+Resuelve:
+
+	-Uxx + U = sin(M_PI * x)
+	en 0 <= x <= 1
+	u(0)=u(1)=0
+
+Dominio: (0.000000,1.000000)
+
+
+Nodos de los elementos
+
+Elemento   1 ---> Nodos (   0,  1 )
+Elemento   2 ---> Nodos (   1,  2 )
+Elemento   3 ---> Nodos (   2,  3 )
+Elemento   4 ---> Nodos (   3,  4 )
+Elemento   5 ---> Nodos (   4,  5 )
+Elemento   6 ---> Nodos (   5,  6 )
+Elemento   7 ---> Nodos (   6,  7 )
+Elemento   8 ---> Nodos (   7,  8 )
+Elemento   9 ---> Nodos (   8,  9 )
+
+Nodos
+
+Nodo:   0 (  -1 ) ---> Nodo: ( +0.0000000000e+00  )
+Nodo:   1 (   0 ) ---> Nodo: ( +1.1111111111e-01  )
+Nodo:   2 (   1 ) ---> Nodo: ( +2.2222222222e-01  )
+Nodo:   3 (   2 ) ---> Nodo: ( +3.3333333333e-01  )
+Nodo:   4 (   3 ) ---> Nodo: ( +4.4444444444e-01  )
+Nodo:   5 (   4 ) ---> Nodo: ( +5.5555555556e-01  )
+Nodo:   6 (   5 ) ---> Nodo: ( +6.6666666667e-01  )
+Nodo:   7 (   6 ) ---> Nodo: ( +7.7777777778e-01  )
+Nodo:   8 (   7 ) ---> Nodo: ( +8.8888888889e-01  )
+Nodo:   9 (  -1 ) ---> Nodo: ( +1.0000000000e+00  )
+
+
+Matriz Densa "Matriz Temporal para Generar Matriz de Rigidez" de dimensión: 2 x 2
+Número de entradas distintas de cero: 4
+Numero máximo de columnas ocupadas: 2
+
+ +9.0370370370  -8.9814814815 
+ -8.9814814815  +9.0370370370 
+
+
+Matriz Bandada "Matriz de carga" de dimensión: 8 x 8 y banda 3
+Número de entradas distintas de cero: 22
+Numero máximo de columnas ocupadas: 3
+
+ +18.0740740741  -8.9814814815  +0.0000000000  +0.0000000000  +0.0000000000  +0.0000000000  +0.0000000000  +0.0000000000 
+ -8.9814814815  +18.0740740741  -8.9814814815  +0.0000000000  +0.0000000000  +0.0000000000  +0.0000000000  +0.0000000000 
+ +0.0000000000  -8.9814814815  +18.0740740741  -8.9814814815  +0.0000000000  +0.0000000000  +0.0000000000  +0.0000000000 
+ +0.0000000000  +0.0000000000  -8.9814814815  +18.0740740741  -8.9814814815  +0.0000000000  +0.0000000000  +0.0000000000 
+ +0.0000000000  +0.0000000000  +0.0000000000  -8.9814814815  +18.0740740741  -8.9814814815  +0.0000000000  +0.0000000000 
+ +0.0000000000  +0.0000000000  +0.0000000000  +0.0000000000  -8.9814814815  +18.0740740741  -8.9814814815  +0.0000000000 
+ +0.0000000000  +0.0000000000  +0.0000000000  +0.0000000000  +0.0000000000  -8.9814814815  +18.0740740741  -8.9814814815 
+ +0.0000000000  +0.0000000000  +0.0000000000  +0.0000000000  +0.0000000000  +0.0000000000  -8.9814814815  +18.0740740741 
+
+
+Vector "Vector de carga" de dimensión: 8 
+
+Vector "Vector Extendido" de dimensión: 2 
+
+Vector extendido "Vector de carga global" de dimensión: 10 
+ +0.0000000000e+00 
+ +3.7617930526e-02 
+ +7.0698583450e-02 
+ +9.5251943809e-02 
+ +1.0831651398e-01 
+ +1.0831651398e-01 
+ +9.5251943809e-02 
+ +7.0698583450e-02 
+ +3.7617930526e-02 
+ +0.0000000000e+00 
+
+
+Método Tridiagonal para resolver el sistema lineal
+
+Vector "Solución sistema lineal" de dimensión: 8 
+
+Vector "Vector Extendido" de dimensión: 2 
+
+Vector extendido "Solución" de dimensión: 10 
+0:  +0.0000000000e+00 
+1:  +3.1494980888e-02 
+2:  +5.9191202265e-02 
+3:  +7.9748091079e-02 
+4:  +9.0686183153e-02 
+5:  +9.0686183153e-02 
+6:  +7.9748091079e-02 
+7:  +5.9191202265e-02 
+8:  +3.1494980888e-02 
+9:  +0.0000000000e+00 
+
+
+
+Error por cada nodo
+Nodo   0 ( -1), Solución exacta: +0.0000000000e+00 , Error: +0.0000000000e+00
+Nodo   1 (  0), Solución exacta: +3.1465739755e-02 , Error: +2.9241133150e-05
+Nodo   2 (  1), Solución exacta: +5.9136246911e-02 , Error: +5.4955354090e-05
+Nodo   3 (  2), Solución exacta: +7.9674049931e-02 , Error: +7.4041148271e-05
+Nodo   4 (  3), Solución exacta: +9.0601986666e-02 , Error: +8.4196487240e-05
+Nodo   5 (  4), Solución exacta: +9.0601986666e-02 , Error: +8.4196487240e-05
+Nodo   6 (  5), Solución exacta: +7.9674049931e-02 , Error: +7.4041148271e-05
+Nodo   7 (  6), Solución exacta: +5.9136246911e-02 , Error: +5.4955354090e-05
+Nodo   8 (  7), Solución exacta: +3.1465739755e-02 , Error: +2.9241133150e-05
+Nodo   9 ( -1), Solución exacta: +1.1266337841e-17 , Error: +1.1266337841e-17
+
+Error: 8.419649e-05
+

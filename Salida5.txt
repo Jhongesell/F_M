@@ -1,0 +1,79 @@
+
+Resuelve:
+
+	-Uxx + U = sin(M_PI * x)
+	en 0 <= x <= 1
+	u(0)=u(1)=0
+
+Dominio: (0.000000,1.000000)
+
+
+Nodos de los elementos
+
+Elemento   1 ---> Nodos (   0,  1 )
+Elemento   2 ---> Nodos (   1,  2 )
+Elemento   3 ---> Nodos (   2,  3 )
+Elemento   4 ---> Nodos (   3,  4 )
+
+Nodos
+
+Nodo:   0 (  -1 ) ---> Nodo: ( +0.0000000000e+00  )
+Nodo:   1 (   0 ) ---> Nodo: ( +2.5000000000e-01  )
+Nodo:   2 (   1 ) ---> Nodo: ( +5.0000000000e-01  )
+Nodo:   3 (   2 ) ---> Nodo: ( +7.5000000000e-01  )
+Nodo:   4 (  -1 ) ---> Nodo: ( +1.0000000000e+00  )
+
+
+Matriz Densa "Matriz Temporal para Generar Matriz de Rigidez" de dimensión: 2 x 2
+Número de entradas distintas de cero: 4
+Numero máximo de columnas ocupadas: 2
+
+ +4.0833333333  -3.9583333333 
+ -3.9583333333  +4.0833333333 
+
+
+Matriz Bandada "Matriz de carga" de dimensión: 3 x 3 y banda 3
+Número de entradas distintas de cero: 7
+Numero máximo de columnas ocupadas: 3
+
+ +8.1666666667  -3.9583333333  +0.0000000000 
+ -3.9583333333  +8.1666666667  -3.9583333333 
+ +0.0000000000  -3.9583333333  +8.1666666667 
+
+
+Vector "Vector de carga" de dimensión: 3 
+
+Vector "Vector Extendido" de dimensión: 2 
+
+Vector extendido "Vector de carga global" de dimensión: 5 
+ +0.0000000000e+00 
+ +1.6787443368e-01 
+ +2.3741030089e-01 
+ +1.6787443368e-01 
+ +0.0000000000e+00 
+
+
+Método Tridiagonal para resolver el sistema lineal
+
+Vector "Solución sistema lineal" de dimensión: 3 
+
+Vector "Vector Extendido" de dimensión: 2 
+
+Vector extendido "Solución" de dimensión: 5 
+0:  +0.0000000000e+00 
+1:  +6.5352883338e-02 
+2:  +9.2422933957e-02 
+3:  +6.5352883338e-02 
+4:  +0.0000000000e+00 
+
+
+
+Error por cada nodo
+Nodo   0 ( -1), Solución exacta: +0.0000000000e+00 , Error: +0.0000000000e+00
+Nodo   1 (  0), Solución exacta: +6.5053589357e-02 , Error: +2.9929398054e-04
+Nodo   2 (  1), Solución exacta: +9.1999668350e-02 , Error: +4.2326560642e-04
+Nodo   3 (  2), Solución exacta: +6.5053589357e-02 , Error: +2.9929398054e-04
+Nodo   4 ( -1), Solución exacta: +1.1266337841e-17 , Error: +1.1266337841e-17
+
+Error: 4.232656e-04
+

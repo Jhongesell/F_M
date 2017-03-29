@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.8"/>
+<title>EjemploFDM1D.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.8 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>PÃ¡gina&#160;principal</span></a></li>
+      <li><a href="pages.html"><span>PÃ¡ginas&#160;relacionadas</span></a></li>
+      <li><a href="annotated.html"><span>Clases</span></a></li>
+      <li><a href="files.html"><span>Archivos</span></a></li>
+      <li><a href="examples.html"><span>Ejemplos</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">EjemploFDM1D.cpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<p>Esta clase implementa los comportamientos para resolver un problema en una dimensión</p>
+<div class="fragment"><div class="line"></div>
+<div class="line"><span class="preprocessor">#include &quot;CtrlParametros.hpp&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="FDM1D_8hpp.html">FDM1D.hpp</a>&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;Problema_1DEjemp01.hpp&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;Geometria_1DHomogenea.hpp&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;ResuelveTridiagonal.hpp&quot;</span></div>
+<div class="line"></div>
+<div class="line"></div>
+<div class="line"><span class="comment">// Ejemplo para resolver un problema en una dimensión mediante el método de diferencias</span></div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keyword">const</span> <span class="keywordtype">char</span> *args[])</div>
+<div class="line">{</div>
+<div class="line">   <span class="comment">// Control de parametros pasados de la linea de comandos</span></div>
+<div class="line">   CtrlParametros parm(argc, args);</div>
+<div class="line">        <span class="keywordtype">int</span> nx = parm.intVal(<span class="stringliteral">&quot;nx&quot;</span>,10); <span class="comment">// Partición en X</span></div>
+<div class="line"></div>
+<div class="line">   <span class="comment">// Geometria</span></div>
+<div class="line">   Geometria_1DHomogenea *ge1 = <span class="keyword">new</span> Geometria_1DHomogenea();</div>
+<div class="line"></div>
+<div class="line">   <span class="comment">// Problema</span></div>
+<div class="line">   Problema_1DEjemp01 *pr = <span class="keyword">new</span> Problema_1DEjemp01();</div>
+<div class="line">   pr-&gt;inicializa(ge1, nx);</div>
+<div class="line">   pr-&gt;visualizaProblema();   </div>
+<div class="line">   ge1-&gt;visualiza();</div>
+<div class="line"></div>
+<div class="line">   <span class="comment">// Metodo de resolución del sistema lineal asociado al método</span></div>
+<div class="line">   ResuelveTridiagonal *rsl = <span class="keyword">new</span> ResuelveTridiagonal();</div>
+<div class="line">   </div>
+<div class="line">   </div>
+<div class="line">   <span class="comment">// Método de diferencias finitas</span></div>
+<div class="line">   <a name="_a0"></a><a class="code" href="classFDM1D.html">FDM1D</a> fdm(pr, ge1, rsl);</div>
+<div class="line">   fdm.<a name="a1"></a><a class="code" href="classF__M.html#a6123b66d27dda6361901874bd544521d">activaVisualiza</a>(<span class="keyword">false</span>);</div>
+<div class="line">   fdm.<a name="a2"></a><a class="code" href="classF__M.html#a9c564f78686ec322481dcf046a99564f">resuelve</a>();</div>
+<div class="line">   fdm.<a name="a3"></a><a class="code" href="classF__M.html#ac82ba81bef6a021bec6411e9a75def84">visualizaSolucion</a>();</div>
+<div class="line">   fdm.<a name="a4"></a><a class="code" href="classF__M.html#a8c6624987b1b2a62d495dc663d12d07e">grabaSolucion</a>(<span class="stringliteral">&quot;Solucion.txt&quot;</span>);</div>
+<div class="line">   printf(<span class="stringliteral">&quot;\nError %lf\n\n&quot;</span>,fdm.<a name="a5"></a><a class="code" href="classF__M.html#ad8129d2ce351b8b8f83ea3afecb0427e">error</a>());</div>
+<div class="line">   </div>
+<div class="line">   <span class="comment">// Libera la memoria solicitada</span></div>
+<div class="line">   <span class="keyword">delete</span> pr;</div>
+<div class="line">   <span class="keyword">delete</span> ge1;</div>
+<div class="line">   <span class="keyword">delete</span> rsl;</div>
+<div class="line">   </div>
+<div class="line">   <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+</div><!-- fragment --> </div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado el SÃ¡bado, 20 de Febrero de 2016 09:14:21 por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.8
+</small></address>
+</body>
+</html>

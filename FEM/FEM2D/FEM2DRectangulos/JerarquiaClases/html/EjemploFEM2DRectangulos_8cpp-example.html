@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.8"/>
+<title>EjemploFEM2DRectangulos.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.8 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>PÃ¡gina&#160;principal</span></a></li>
+      <li><a href="pages.html"><span>PÃ¡ginas&#160;relacionadas</span></a></li>
+      <li><a href="annotated.html"><span>Clases</span></a></li>
+      <li><a href="files.html"><span>Archivos</span></a></li>
+      <li><a href="examples.html"><span>Ejemplos</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">EjemploFEM2DRectangulos.cpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<p>Esta clase implementa los comportamientos para resolver un problema en dos dimensiones mediante el método de elemento finito en dos dimensiones usando rectangulos</p>
+<div class="fragment"><div class="line"></div>
+<div class="line"><span class="preprocessor">#include &quot;CtrlParametros.hpp&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="FEM2DRectangulos_8hpp.html">FEM2DRectangulos.hpp</a>&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;Problema_2DEjemp01.hpp&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;Geometria_2DRectangulos.hpp&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;ResuelveCGMBandDisp.hpp&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;ResuelveJacobiBandDisp.hpp&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;ResuelveGaussSeidelBandDisp.hpp&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;ResuelveFactorizacionLUBandDisp.hpp&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;ResuelveInversa.hpp&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;time.h&gt;</span></div>
+<div class="line"></div>
+<div class="line"></div>
+<div class="line"></div>
+<div class="line"><span class="comment">// Ejemplo para resolver un problema en dos dimensiones mediante el método de elemento finito</span></div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keyword">const</span> <span class="keywordtype">char</span> *args[])</div>
+<div class="line">{</div>
+<div class="line">   time_t t1;</div>
+<div class="line">   time_t t2;</div>
+<div class="line">   </div>
+<div class="line">   <span class="comment">// Control de parametros pasados de la linea de comandos</span></div>
+<div class="line">   CtrlParametros parm(argc, args);</div>
+<div class="line">        <span class="keywordtype">int</span> nx = parm.intVal(<span class="stringliteral">&quot;nx&quot;</span>,5); <span class="comment">// Partición en X</span></div>
+<div class="line">   <span class="keywordtype">int</span> ny = parm.intVal(<span class="stringliteral">&quot;ny&quot;</span>,nx); <span class="comment">// Partición en Y</span></div>
+<div class="line">   </div>
+<div class="line">   <span class="comment">// Definicion de la geometria        </span></div>
+<div class="line">   Geometria_2DRectangulos *ge = <span class="keyword">new</span> Geometria_2DRectangulos();</div>
+<div class="line"></div>
+<div class="line">   <span class="comment">// Definicion del problema</span></div>
+<div class="line">   Problema_2DEjemp01 *pr = <span class="keyword">new</span> Problema_2DEjemp01();</div>
+<div class="line">   pr-&gt;inicializa(ge,nx,ny);</div>
+<div class="line">   </div>
+<div class="line">   <span class="comment">// Visualiza problema y geomentria</span></div>
+<div class="line">   pr-&gt;visualizaProblema();   </div>
+<div class="line">   ge-&gt;visualiza();</div>
+<div class="line"></div>
+<div class="line">   <span class="comment">// Declara los distintos metodos numericos para resolver el sistema lineal asociado</span></div>
+<div class="line">   ResuelveCGMBandDisp *rsl1 = <span class="keyword">new</span> ResuelveCGMBandDisp();</div>
+<div class="line">   ResuelveJacobiBandDisp *rsl2 = <span class="keyword">new</span> ResuelveJacobiBandDisp();</div>
+<div class="line">   ResuelveGaussSeidelBandDisp *rsl3 = <span class="keyword">new</span> ResuelveGaussSeidelBandDisp();</div>
+<div class="line">   ResuelveFactorizacionLUBandDisp *rsl4 = <span class="keyword">new</span> ResuelveFactorizacionLUBandDisp();</div>
+<div class="line">   ResuelveInversa *rsl5 = <span class="keyword">new</span> ResuelveInversa();</div>
+<div class="line">   <span class="comment">// Uso de punteros para cambiar el metodo numerico</span></div>
+<div class="line">   ResuelveSistemaLineal *rsl[5];</div>
+<div class="line">   rsl[0] = rsl1;   </div>
+<div class="line">   rsl[1] = rsl2;   </div>
+<div class="line">   rsl[2] = rsl3;</div>
+<div class="line">   rsl[3] = rsl4;</div>
+<div class="line">   rsl[4] = rsl5;</div>
+<div class="line"></div>
+<div class="line">   <span class="comment">// FEM</span></div>
+<div class="line">   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 5; i++)</div>
+<div class="line">   {</div>
+<div class="line">      time(&amp;t1);</div>
+<div class="line">      <a name="_a0"></a><a class="code" href="classFEM2DRectangulos.html">FEM2DRectangulos</a> fem(pr, ge, rsl[i]);</div>
+<div class="line">      fem.<a name="a1"></a><a class="code" href="classF__M.html#a6123b66d27dda6361901874bd544521d">activaVisualiza</a>(<span class="keyword">false</span>);</div>
+<div class="line">      fem.<a name="a2"></a><a class="code" href="classF__M.html#a9c564f78686ec322481dcf046a99564f">resuelve</a>();</div>
+<div class="line">      fem.<a name="a3"></a><a class="code" href="classF__M.html#ac82ba81bef6a021bec6411e9a75def84">visualizaSolucion</a>();</div>
+<div class="line">      fem.<a name="a4"></a><a class="code" href="classF__M.html#a8c6624987b1b2a62d495dc663d12d07e">grabaSolucion</a>(<span class="stringliteral">&quot;Solucion.txt&quot;</span>);</div>
+<div class="line">      fem.<a name="a5"></a><a class="code" href="classF__M.html#ad8129d2ce351b8b8f83ea3afecb0427e">error</a>();</div>
+<div class="line">      printf(<span class="stringliteral">&quot;\n\n&quot;</span>);</div>
+<div class="line">      time(&amp;t2);</div>
+<div class="line">      printf(<span class="stringliteral">&quot;\nTiempo Cálculo: %f\n&quot;</span>,difftime(t2,t1));</div>
+<div class="line">   }   </div>
+<div class="line">   </div>
+<div class="line">   <span class="comment">// Libera la memoiria dinamica</span></div>
+<div class="line">   <span class="keyword">delete</span> pr;</div>
+<div class="line">   <span class="keyword">delete</span> ge;</div>
+<div class="line">   <span class="keyword">delete</span> rsl1;</div>
+<div class="line">   <span class="keyword">delete</span> rsl2;</div>
+<div class="line">   <span class="keyword">delete</span> rsl3;</div>
+<div class="line">   <span class="keyword">delete</span> rsl4;</div>
+<div class="line">   <span class="keyword">delete</span> rsl5;</div>
+<div class="line">   </div>
+<div class="line">   </div>
+<div class="line">   <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+</div><!-- fragment --> </div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado el SÃ¡bado, 20 de Febrero de 2016 09:11:35 por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.8
+</small></address>
+</body>
+</html>

@@ -1,0 +1,214 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.8"/>
+<title>Fichero Fuente F_M.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.8 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>PÃ¡gina&#160;principal</span></a></li>
+      <li><a href="pages.html"><span>PÃ¡ginas&#160;relacionadas</span></a></li>
+      <li><a href="annotated.html"><span>Clases</span></a></li>
+      <li class="current"><a href="files.html"><span>Archivos</span></a></li>
+      <li><a href="examples.html"><span>Ejemplos</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Lista&#160;de&#160;archivos</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">F_M.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="F__M_8hpp.html">Ir a la documentaciÃ³n de este archivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// Clase base para el método de diferencias finitas o elemento finito                       //</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">//                                                                                          //</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// Análisis y Diseño y Programación:                                                        //</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">//                                                                                          //</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">// Nombre:   Antonio Carrillo Ledesma                                                       //</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">// E-mail:   acl@www.mmc.geofisica.unam.mx                                                  //</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">// Página:   http://www.mmc.geofisica.unam.mx/acl                                           //</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">//                                                                                          //</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">//                                                                                          //</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">// Este programa es software libre. Puede redistribuirlo y/o modificarlo                    //</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">// bajo los términos de la Licencia Pública General de GNU según es                         //</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">// publicada por la Free Software Foundation, bien de la versión 2 de                       //</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">// dicha Licencia o bien (según su elección) de cualquier versión                           //</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">// posterior.                                                                               //</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">//                                                                                          //</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">// Este programa se distribuye con la esperanza de que sea útil, pero SIN                   //</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">// NINGUNA GARANTÍA, incluso sin la garantía MERCANTIL implícita o sin                      //</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">// garantizar la CONVENIENCIA PARA UN PROPÓSITO PARTICULAR. Véase la                        //</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">// Licencia Pública General de GNU para más detalles.                                       //</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">//                                                                                          //</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">// Debería haber recibido una copia de la Licencia Pública General junto                    //</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">// con este programa. Si no ha sido así, escriba a la Free Software                         //</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">// Foundation, Inc., en 675 Mass Ave, Cambridge, MA 02139, EEUU.                            //</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">//                                                                                          //</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">//                                                                                          //</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#ifndef __F_M__</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#define __F_M__</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#include &quot;VectorExtendido.hpp&quot;</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#include &quot;ResuelveSistemaLineal.hpp&quot;</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#include &quot;Geometria.hpp&quot;</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#include &quot;Problema.hpp&quot;</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="classF__M.html">   47</a></span>&#160;<span class="keyword">class </span><a class="code" href="classF__M.html">F_M</a></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;{</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="classF__M.html#a6baf7b138157f7ee944789cf1dd50458">   52</a></span>&#160;   Matriz *<a class="code" href="classF__M.html#a6baf7b138157f7ee944789cf1dd50458">pM</a>;</div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="classF__M.html#ae97198a08c21c23a9faded35767e9801">   54</a></span>&#160;   Vector *<a class="code" href="classF__M.html#ae97198a08c21c23a9faded35767e9801">pB</a>;</div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="classF__M.html#a44dc8ba8f982fca9bf6f824ae499b3ce">   56</a></span>&#160;   Vector *<a class="code" href="classF__M.html#a44dc8ba8f982fca9bf6f824ae499b3ce">pX</a>;</div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="classF__M.html#a8a11d97e9f42fa3c0faf8456d303843f">   58</a></span>&#160;   VectorExtendido *<a class="code" href="classF__M.html#a8a11d97e9f42fa3c0faf8456d303843f">pSol</a>;</div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="classF__M.html#a954ac08f9bf0d8c643de44741ad71687">   60</a></span>&#160;   VectorExtendido *<a class="code" href="classF__M.html#a954ac08f9bf0d8c643de44741ad71687">pBA</a>;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
+<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="classF__M.html#ac5f836e2e26f4a4be85ebb9c8449e429">   63</a></span>&#160;   <span class="keywordtype">bool</span> <a class="code" href="classF__M.html#ac5f836e2e26f4a4be85ebb9c8449e429">visualiza</a>;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
+<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="classF__M.html#a452150ac9999b11c086f0264c9f2e333">   66</a></span>&#160;   ResuelveSistemaLineal  *<a class="code" href="classF__M.html#a452150ac9999b11c086f0264c9f2e333">pRSL</a>;</div>
+<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="classF__M.html#aff9c5cdc7799c7837e457449ac03cb95">   68</a></span>&#160;   Problema   *<a class="code" href="classF__M.html#aff9c5cdc7799c7837e457449ac03cb95">pPr</a>;</div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="classF__M.html#ab98d1d54362fde8bc9b9e93a2559f60a">   70</a></span>&#160;   Geometria  *<a class="code" href="classF__M.html#ab98d1d54362fde8bc9b9e93a2559f60a">pGe</a>;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
+<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="classF__M.html#a7bc073054d830122f6af83c61d161472">   73</a></span>&#160;   <span class="keywordtype">int</span> <a class="code" href="classF__M.html#a7bc073054d830122f6af83c61d161472">banda</a>;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;   <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classF__M.html#ab2b0aff172c43e2d5cd694bcf620d53e">estableceCondicionesFrontera</a>(<span class="keywordtype">void</span>) = 0;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;   <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classF__M.html#a750ac0a5373aeab0bcbb1ba00ca070c1">generaSistemaLineal</a>(<span class="keywordtype">void</span>) = 0;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
+<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="classF__M.html#ae29ceffcbda9b21a9a4d438fc4c19281">   83</a></span>&#160;   <span class="keywordtype">void</span> <a class="code" href="classF__M.html#ae29ceffcbda9b21a9a4d438fc4c19281">solucionaSistemaLineal</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;   {</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;      <span class="comment">// Inicializa el método de resolución del sistema lineal</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;      pRSL-&gt;inicializa(pM,pB,pX);</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;      <span class="comment">// Resuelve el sistema lineal</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;      pRSL-&gt;resuelve();</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;      <span class="comment">// Visializa información sobre la solución del sistema lineal</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;      pRSL-&gt;informacionMetodo();</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;   }</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;   <span class="keywordtype">void</span> <a class="code" href="classF__M.html#a8d03ac5c9306c8e810c96f27af986bb9">ensamblaSolucion</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;   <span class="keywordtype">void</span> <a class="code" href="classF__M.html#acf8616d3fd62a7587369547831206f78">solicitaMemoria</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
+<div class="line"><a name="l00106"></a><span class="lineno"><a class="line" href="classF__M.html#a8271073212caa34b07cbe33ea50893bf">  106</a></span>&#160;   <a class="code" href="classF__M.html#a8271073212caa34b07cbe33ea50893bf">F_M</a>(Problema *pr, Geometria *ge, ResuelveSistemaLineal *rsl)</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;   {</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;      visualiza = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;      pPr = pr;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;      pGe = ge;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;      pRSL = rsl;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;      pM = NULL;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;      pB = NULL;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;      pX = NULL;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;      pSol = NULL;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;      pBA = NULL;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;   }</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;</div>
+<div class="line"><a name="l00120"></a><span class="lineno"><a class="line" href="classF__M.html#a60db2354527b8d5141853bd819e5d8dd">  120</a></span>&#160;   <a class="code" href="classF__M.html#a60db2354527b8d5141853bd819e5d8dd">~F_M</a>()</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;   {</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;      <span class="keywordflow">if</span> (pM)</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;      {</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;         pM-&gt;liberaMemoria();</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;         <span class="keyword">delete</span> <a class="code" href="classF__M.html#a6baf7b138157f7ee944789cf1dd50458">pM</a>;</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;      }</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;      <span class="keyword">delete</span> <a class="code" href="classF__M.html#a8a11d97e9f42fa3c0faf8456d303843f">pSol</a>;</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;      <span class="keyword">delete</span> <a class="code" href="classF__M.html#a954ac08f9bf0d8c643de44741ad71687">pBA</a>;</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;      <span class="keyword">delete</span> <a class="code" href="classF__M.html#ae97198a08c21c23a9faded35767e9801">pB</a>;</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;      <span class="keyword">delete</span> <a class="code" href="classF__M.html#a44dc8ba8f982fca9bf6f824ae499b3ce">pX</a>;</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;   }</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;</div>
+<div class="line"><a name="l00135"></a><span class="lineno"><a class="line" href="classF__M.html#a9c564f78686ec322481dcf046a99564f">  135</a></span>&#160;   <span class="keywordtype">void</span> <a class="code" href="classF__M.html#a9c564f78686ec322481dcf046a99564f">resuelve</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;   {</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;      <span class="comment">// Establece las condiciones de frontera del problema</span></div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;      <a class="code" href="classF__M.html#ab2b0aff172c43e2d5cd694bcf620d53e">estableceCondicionesFrontera</a>();</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;      <span class="comment">// Genera el sistema lineal, i.e genera M  y B</span></div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;      <a class="code" href="classF__M.html#a750ac0a5373aeab0bcbb1ba00ca070c1">generaSistemaLineal</a>();</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;      <span class="comment">// Limpia variables temporales usadas para generar el sistema lineal</span></div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;      pGe-&gt;liberaSoporteNodos();</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;      <span class="comment">// Genera la solicion del sistema lineal, i.e. MX=B</span></div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;      <a class="code" href="classF__M.html#ae29ceffcbda9b21a9a4d438fc4c19281">solucionaSistemaLineal</a>();</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;   }</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;</div>
+<div class="line"><a name="l00149"></a><span class="lineno"><a class="line" href="classF__M.html#ac82ba81bef6a021bec6411e9a75def84">  149</a></span>&#160;   <span class="keywordtype">void</span> <a class="code" href="classF__M.html#ac82ba81bef6a021bec6411e9a75def84">visualizaSolucion</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;   {</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;      pSol-&gt;visualiza(1,1,1);</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;   }</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;   <span class="keywordtype">void</span> <a class="code" href="classF__M.html#a8c6624987b1b2a62d495dc663d12d07e">grabaSolucion</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *arch);</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;   ldouble <a class="code" href="classF__M.html#ad8129d2ce351b8b8f83ea3afecb0427e">error</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;</div>
+<div class="line"><a name="l00163"></a><span class="lineno"><a class="line" href="classF__M.html#ad0ee38207e6f1e3547fc31b52c82592d">  163</a></span>&#160;   <span class="keywordtype">void</span> <a class="code" href="classF__M.html#ad0ee38207e6f1e3547fc31b52c82592d">errorSolicitudMemoria</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *cad)</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;   {</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;      printf(<span class="stringliteral">&quot;\nError no hay memoria: %s\n&quot;</span>,cad);</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;      exit(1);</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;   }</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;</div>
+<div class="line"><a name="l00171"></a><span class="lineno"><a class="line" href="classF__M.html#a6123b66d27dda6361901874bd544521d">  171</a></span>&#160;   <span class="keywordtype">void</span> <a class="code" href="classF__M.html#a6123b66d27dda6361901874bd544521d">activaVisualiza</a>(<span class="keywordtype">bool</span> st)</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;   {</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;      visualiza = st;</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;   }</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;};</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="classF__M_html_a8d03ac5c9306c8e810c96f27af986bb9"><div class="ttname"><a href="classF__M.html#a8d03ac5c9306c8e810c96f27af986bb9">F_M::ensamblaSolucion</a></div><div class="ttdeci">void ensamblaSolucion(void)</div><div class="ttdoc">Ensambla Solución </div><div class="ttdef"><b>Definition:</b> F_M.cpp:98</div></div>
+<div class="ttc" id="classF__M_html_a7bc073054d830122f6af83c61d161472"><div class="ttname"><a href="classF__M.html#a7bc073054d830122f6af83c61d161472">F_M::banda</a></div><div class="ttdeci">int banda</div><div class="ttdoc">Tamaño de la banda. </div><div class="ttdef"><b>Definition:</b> F_M.hpp:73</div></div>
+<div class="ttc" id="classF__M_html_a60db2354527b8d5141853bd819e5d8dd"><div class="ttname"><a href="classF__M.html#a60db2354527b8d5141853bd819e5d8dd">F_M::~F_M</a></div><div class="ttdeci">~F_M()</div><div class="ttdoc">Destructor de la clase. </div><div class="ttdef"><b>Definition:</b> F_M.hpp:120</div></div>
+<div class="ttc" id="classF__M_html_a452150ac9999b11c086f0264c9f2e333"><div class="ttname"><a href="classF__M.html#a452150ac9999b11c086f0264c9f2e333">F_M::pRSL</a></div><div class="ttdeci">ResuelveSistemaLineal * pRSL</div><div class="ttdoc">Puntero al método de resolucion del sistema lineal. </div><div class="ttdef"><b>Definition:</b> F_M.hpp:66</div></div>
+<div class="ttc" id="classF__M_html_ab2b0aff172c43e2d5cd694bcf620d53e"><div class="ttname"><a href="classF__M.html#ab2b0aff172c43e2d5cd694bcf620d53e">F_M::estableceCondicionesFrontera</a></div><div class="ttdeci">virtual void estableceCondicionesFrontera(void)=0</div><div class="ttdoc">Establece las condiciones de frontera. </div></div>
+<div class="ttc" id="classF__M_html_a8271073212caa34b07cbe33ea50893bf"><div class="ttname"><a href="classF__M.html#a8271073212caa34b07cbe33ea50893bf">F_M::F_M</a></div><div class="ttdeci">F_M(Problema *pr, Geometria *ge, ResuelveSistemaLineal *rsl)</div><div class="ttdoc">Constructor de la clase. </div><div class="ttdef"><b>Definition:</b> F_M.hpp:106</div></div>
+<div class="ttc" id="classF__M_html_ac82ba81bef6a021bec6411e9a75def84"><div class="ttname"><a href="classF__M.html#ac82ba81bef6a021bec6411e9a75def84">F_M::visualizaSolucion</a></div><div class="ttdeci">void visualizaSolucion(void)</div><div class="ttdoc">Visualiza la solicion del problema. </div><div class="ttdef"><b>Definition:</b> F_M.hpp:149</div></div>
+<div class="ttc" id="classF__M_html"><div class="ttname"><a href="classF__M.html">F_M</a></div><div class="ttdoc">Clase base para resolver problemas por el método de diferencias finitas o elemento finito...</div><div class="ttdef"><b>Definition:</b> F_M.hpp:47</div></div>
+<div class="ttc" id="classF__M_html_a6123b66d27dda6361901874bd544521d"><div class="ttname"><a href="classF__M.html#a6123b66d27dda6361901874bd544521d">F_M::activaVisualiza</a></div><div class="ttdeci">void activaVisualiza(bool st)</div><div class="ttdoc">Activa/desactiva la visualización de matrices y vectores generados. </div><div class="ttdef"><b>Definition:</b> F_M.hpp:171</div></div>
+<div class="ttc" id="classF__M_html_a8a11d97e9f42fa3c0faf8456d303843f"><div class="ttname"><a href="classF__M.html#a8a11d97e9f42fa3c0faf8456d303843f">F_M::pSol</a></div><div class="ttdeci">VectorExtendido * pSol</div><div class="ttdoc">Solucion al problema mediante el método de diferencias finitas. </div><div class="ttdef"><b>Definition:</b> F_M.hpp:58</div></div>
+<div class="ttc" id="classF__M_html_a954ac08f9bf0d8c643de44741ad71687"><div class="ttname"><a href="classF__M.html#a954ac08f9bf0d8c643de44741ad71687">F_M::pBA</a></div><div class="ttdeci">VectorExtendido * pBA</div><div class="ttdoc">Vector de carga completo. </div><div class="ttdef"><b>Definition:</b> F_M.hpp:60</div></div>
+<div class="ttc" id="classF__M_html_a750ac0a5373aeab0bcbb1ba00ca070c1"><div class="ttname"><a href="classF__M.html#a750ac0a5373aeab0bcbb1ba00ca070c1">F_M::generaSistemaLineal</a></div><div class="ttdeci">virtual void generaSistemaLineal(void)=0</div><div class="ttdoc">Genera el sistema lineal asociado al problema. </div></div>
+<div class="ttc" id="classF__M_html_ae29ceffcbda9b21a9a4d438fc4c19281"><div class="ttname"><a href="classF__M.html#ae29ceffcbda9b21a9a4d438fc4c19281">F_M::solucionaSistemaLineal</a></div><div class="ttdeci">void solucionaSistemaLineal(void)</div><div class="ttdoc">Resuelve el sistema lineal asociado al problema. </div><div class="ttdef"><b>Definition:</b> F_M.hpp:83</div></div>
+<div class="ttc" id="classF__M_html_ae97198a08c21c23a9faded35767e9801"><div class="ttname"><a href="classF__M.html#ae97198a08c21c23a9faded35767e9801">F_M::pB</a></div><div class="ttdeci">Vector * pB</div><div class="ttdoc">Vector de carga. </div><div class="ttdef"><b>Definition:</b> F_M.hpp:54</div></div>
+<div class="ttc" id="classF__M_html_ab98d1d54362fde8bc9b9e93a2559f60a"><div class="ttname"><a href="classF__M.html#ab98d1d54362fde8bc9b9e93a2559f60a">F_M::pGe</a></div><div class="ttdeci">Geometria * pGe</div><div class="ttdoc">Puntero a la definicion de la geometria. </div><div class="ttdef"><b>Definition:</b> F_M.hpp:70</div></div>
+<div class="ttc" id="classF__M_html_a9c564f78686ec322481dcf046a99564f"><div class="ttname"><a href="classF__M.html#a9c564f78686ec322481dcf046a99564f">F_M::resuelve</a></div><div class="ttdeci">void resuelve(void)</div><div class="ttdoc">Resuelve el problema mediante el método de diferencias finitas o elemento finito. </div><div class="ttdef"><b>Definition:</b> F_M.hpp:135</div></div>
+<div class="ttc" id="classF__M_html_acf8616d3fd62a7587369547831206f78"><div class="ttname"><a href="classF__M.html#acf8616d3fd62a7587369547831206f78">F_M::solicitaMemoria</a></div><div class="ttdeci">void solicitaMemoria(void)</div><div class="ttdoc">Solicita la memoria necesaria para soportar los vectores y metrices del método. </div><div class="ttdef"><b>Definition:</b> F_M.cpp:41</div></div>
+<div class="ttc" id="classF__M_html_a44dc8ba8f982fca9bf6f824ae499b3ce"><div class="ttname"><a href="classF__M.html#a44dc8ba8f982fca9bf6f824ae499b3ce">F_M::pX</a></div><div class="ttdeci">Vector * pX</div><div class="ttdoc">Solucion al sistema lineal. </div><div class="ttdef"><b>Definition:</b> F_M.hpp:56</div></div>
+<div class="ttc" id="classF__M_html_ac5f836e2e26f4a4be85ebb9c8449e429"><div class="ttname"><a href="classF__M.html#ac5f836e2e26f4a4be85ebb9c8449e429">F_M::visualiza</a></div><div class="ttdeci">bool visualiza</div><div class="ttdoc">Visualización de matrices y vectores generados. </div><div class="ttdef"><b>Definition:</b> F_M.hpp:63</div></div>
+<div class="ttc" id="classF__M_html_a8c6624987b1b2a62d495dc663d12d07e"><div class="ttname"><a href="classF__M.html#a8c6624987b1b2a62d495dc663d12d07e">F_M::grabaSolucion</a></div><div class="ttdeci">void grabaSolucion(const char *arch)</div><div class="ttdoc">Graba la solución a un archivo. </div><div class="ttdef"><b>Definition:</b> F_M.cpp:163</div></div>
+<div class="ttc" id="classF__M_html_a6baf7b138157f7ee944789cf1dd50458"><div class="ttname"><a href="classF__M.html#a6baf7b138157f7ee944789cf1dd50458">F_M::pM</a></div><div class="ttdeci">Matriz * pM</div><div class="ttdoc">Matriz de carga. </div><div class="ttdef"><b>Definition:</b> F_M.hpp:52</div></div>
+<div class="ttc" id="classF__M_html_ad8129d2ce351b8b8f83ea3afecb0427e"><div class="ttname"><a href="classF__M.html#ad8129d2ce351b8b8f83ea3afecb0427e">F_M::error</a></div><div class="ttdeci">ldouble error(void)</div><div class="ttdoc">Muestra el error de la solución vs la solución análitica. </div><div class="ttdef"><b>Definition:</b> F_M.cpp:119</div></div>
+<div class="ttc" id="classF__M_html_ad0ee38207e6f1e3547fc31b52c82592d"><div class="ttname"><a href="classF__M.html#ad0ee38207e6f1e3547fc31b52c82592d">F_M::errorSolicitudMemoria</a></div><div class="ttdeci">void errorSolicitudMemoria(const char *cad)</div><div class="ttdoc">Visualiza el error indicado por falta de memoria. </div><div class="ttdef"><b>Definition:</b> F_M.hpp:163</div></div>
+<div class="ttc" id="classF__M_html_aff9c5cdc7799c7837e457449ac03cb95"><div class="ttname"><a href="classF__M.html#aff9c5cdc7799c7837e457449ac03cb95">F_M::pPr</a></div><div class="ttdeci">Problema * pPr</div><div class="ttdoc">Puntero a la definicion del problema. </div><div class="ttdef"><b>Definition:</b> F_M.hpp:68</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado el SÃ¡bado, 20 de Febrero de 2016 09:11:35 por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.8
+</small></address>
+</body>
+</html>
